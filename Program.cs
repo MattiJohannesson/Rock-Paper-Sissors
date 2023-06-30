@@ -1,7 +1,9 @@
-﻿int turns = 0, playerValue = 0, player2Value = 0, 
-    rock = 0, paper = 0, scissors = 0;
-string[] gameValue = new string[3]
-    {"rock", "paper", "scissors"};
+﻿using System.Linq;
+
+int turns = 0, playerValue = 0, player2Value = 0;
+string[] gameValue = new string[5]
+    {"rock", "paper", "scissors", "lizard", "spock"};
+int[] mostUsedMove = new int[5];
 Random rand = new Random();
 
 Start();
@@ -9,11 +11,10 @@ Start();
 void Start(){
     turns = 0;
     playerValue = 0;
-    rock = 0;
-    paper = 0;
-    scissors = 0;
+    mostUsedMove = new int[5];
 
-    Console.WriteLine("Rock paper scissors");
+    Console.Clear();
+    Console.WriteLine("Rock paper scissors lizard spock");
     Console.WriteLine("Enter the number to select the Gamemode");
     Console.WriteLine("1.Player vs Computer");
     Console.WriteLine("2.Player Vs Player");
@@ -41,8 +42,10 @@ void ValidateGamemode(){
 void GamemodePlayerVComputer(){
     Console.Clear();
     turns++;
-    int computersValue = rand.Next(3);
+    int computersValue = rand.Next(5);
+    mostUsedMove[computersValue]++;
     Console.WriteLine($"Turn {turns}:");
+    GetMostUsedMove();
     playerValue = SelectMove();
     Console.WriteLine($"Computer selected {gameValue[computersValue]}");
     Console.WriteLine($"You selected {gameValue[playerValue]}");
@@ -51,20 +54,46 @@ void GamemodePlayerVComputer(){
         Pause();
         GamemodePlayerVComputer();
     }
-    
-    if (playerValue == computersValue+1%3){
-        Console.WriteLine("Player Wins");
-        Console.WriteLine($"The game took {turns} turns");
-        Console.WriteLine($"the most used move was {MostUsedMove()}");
-        Pause();
-        Start();
+
+    switch (playerValue)
+    {
+        case 0:
+            if (computersValue == 2 || computersValue == 3)
+            {
+                DisplayWinner("Player Wins");
+            }
+            break;
+
+        case 1:
+            if (computersValue == 0 || computersValue == 4)
+            {
+                DisplayWinner("Player Wins");
+            }
+            break;
+
+        case 2:
+            if (computersValue == 1 || computersValue == 3)
+            {
+                DisplayWinner("Player Wins");
+            }
+            break;
+
+        case 3:
+            if (computersValue == 4 || computersValue == 1)
+            {
+                DisplayWinner("Player Wins");
+            }
+            break;
+
+        case 4:
+            if (computersValue == 0 || computersValue == 2)
+            {
+                DisplayWinner("Player Wins");
+            }
+            break;
     }
 
-    Console.WriteLine("Computer Wins");
-    Console.WriteLine($"The game took {turns} turns");
-    Console.WriteLine($"the most used move was {MostUsedMove()}");
-    Pause();
-    Start();
+    DisplayWinner("Computer Wins");
 }
 
 void GamemodePlayerVPlayer(){
@@ -83,43 +112,73 @@ void GamemodePlayerVPlayer(){
         GamemodePlayerVPlayer();
     }
     
-    if (playerValue == player2Value+1%3){
-        Console.WriteLine("Player 1 Wins");
-        Console.WriteLine($"The game took {turns} turns");
-        Console.WriteLine($"the most used move was {MostUsedMove()}");
-        Pause();
-        Start();
+    switch (playerValue)
+    {
+        case 0:
+            if (player2Value == 2 || player2Value == 3)
+            {
+                DisplayWinner("Player 2 Wins");
+            }
+            break;
+
+        case 1:
+            if (player2Value == 0 || player2Value == 4)
+            {
+                DisplayWinner("Player 2 Wins");
+            }
+            break;
+
+        case 2:
+            if (player2Value == 1 || player2Value == 3)
+            {
+                DisplayWinner("Player 2 Wins");
+            }
+            break;
+
+        case 3:
+            if (player2Value == 4 || player2Value == 1)
+            {
+                DisplayWinner("Player 2 Wins");
+            }
+            break;
+
+        case 4:
+            if (player2Value == 0 || player2Value == 2)
+            {
+                DisplayWinner("Player 2 Wins");
+            }
+            break;
     }
 
-    Console.WriteLine("player 2 Wins");
+    DisplayWinner("Player 1 Wins");
+}
+
+void DisplayWinner(string winner)
+{
+    Console.WriteLine(winner);
     Console.WriteLine($"The game took {turns} turns");
-    Console.WriteLine($"the most used move was {MostUsedMove()}");
+    Console.WriteLine($"the most used move was {GetMostUsedMove()}");
     Pause();
     Start();
 }
 
-string MostUsedMove(){
+string GetMostUsedMove(){
     string output = "";
+    int maxValue = mostUsedMove.Max();
     bool moreThanOne = false;
 
-    if (rock >= paper){
-        output += "rock";
-        moreThanOne = true;
-    }
+    for (int i = 0; i < 5; i++)
+    {
+        if (mostUsedMove[i] >= maxValue)
+        {
+            if (moreThanOne)
+            {
+                output += " and ";
+            }
 
-    if (paper >= scissors){
-        if (moreThanOne){
-            output += " and ";
+            output += gameValue[i];
+            moreThanOne = true;
         }
-        output += "paper";
-        moreThanOne = true;
-    }
-
-    if (scissors >= rock){
-        if (moreThanOne){
-            output += " and ";
-        }
-        output += "scissors";
     }
 
     return output;
@@ -131,25 +190,34 @@ void Pause(){
 }
 
 int SelectMove(string player = ""){
-    Console.WriteLine($"Select rock, paper, or scissors {player}");
+    Console.WriteLine($"Select rock, paper, scissors, lizard, or spock {player}");
     string? response = Console.ReadLine()?.ToLower();
-    if (response != "rock" && response != "paper" && response != "scissors"){
+    if (response != "rock" && response != "paper" && response != "scissors"
+            && response != "lizard" && response != "spock"){
         Console.WriteLine("Invalid input");
         SelectMove();
     }
 
     switch(response){
         case "rock":
-            rock++;
+            mostUsedMove[0]++;
             return 0;
 
         case "paper":
-            paper++;
+            mostUsedMove[1]++;
             return 1;
 
         case "scissors":
-            scissors++;
+            mostUsedMove[2]++;
             return 2;
+
+        case "lizard":
+            mostUsedMove[3]++;
+            return 3;
+
+        case "spock":
+            mostUsedMove[4]++;
+            return 4;
     }
 
     return 0;
