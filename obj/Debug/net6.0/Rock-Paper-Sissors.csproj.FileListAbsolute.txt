@@ -1,0 +1,15 @@
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\bin\Debug\net6.0\Rock-Paper-Sissors.exe
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\bin\Debug\net6.0\Rock-Paper-Sissors.deps.json
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\bin\Debug\net6.0\Rock-Paper-Sissors.runtimeconfig.json
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\bin\Debug\net6.0\Rock-Paper-Sissors.dll
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\bin\Debug\net6.0\Rock-Paper-Sissors.pdb
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.csproj.AssemblyReference.cache
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.AssemblyInfoInputs.cache
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.AssemblyInfo.cs
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.csproj.CoreCompileInputs.cache
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.dll
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\refint\Rock-Paper-Sissors.dll
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.pdb
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\Rock-Paper-Sissors.genruntimeconfig.cache
+C:\Users\Matti\Documents\GitHub\Rock-Paper-Sissors\Rock-Paper-Sissors\obj\Debug\net6.0\ref\Rock-Paper-Sissors.dll
