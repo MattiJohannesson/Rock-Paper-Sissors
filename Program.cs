@@ -1,5 +1,7 @@
-﻿int turns = 0, playerValue = 0, player2Value = 0, rock = 0, paper = 0, sissors = 0;
-string[] gameValue = new string[3]{"rock", "paper", "sissors"};
+﻿int turns = 0, playerValue = 0, player2Value = 0, 
+    rock = 0, paper = 0, scissors = 0;
+string[] gameValue = new string[3]
+    {"rock", "paper", "scissors"};
 Random rand = new Random();
 
 Start();
@@ -9,9 +11,9 @@ void Start(){
     playerValue = 0;
     rock = 0;
     paper = 0;
-    sissors = 0;
+    scissors = 0;
 
-    Console.WriteLine("Rock paper sissors");
+    Console.WriteLine("Rock paper scissors");
     Console.WriteLine("Enter the number to select the Gamemode");
     Console.WriteLine("1.Player vs Computer");
     Console.WriteLine("2.Player Vs Player");
@@ -105,7 +107,7 @@ string MostUsedMove(){
         moreThanOne = true;
     }
 
-    if (paper >= sissors){
+    if (paper >= scissors){
         if (moreThanOne){
             output += " and ";
         }
@@ -113,11 +115,11 @@ string MostUsedMove(){
         moreThanOne = true;
     }
 
-    if (sissors >= rock){
+    if (scissors >= rock){
         if (moreThanOne){
             output += " and ";
         }
-        output += "sissors";
+        output += "scissors";
     }
 
     return output;
@@ -129,9 +131,9 @@ void Pause(){
 }
 
 int SelectMove(string player = ""){
-    Console.WriteLine($"Select rock, paper, or sissors {player}");
+    Console.WriteLine($"Select rock, paper, or scissors {player}");
     string? response = Console.ReadLine()?.ToLower();
-    if (response != "rock" && response != "paper" && response != "sissors"){
+    if (response != "rock" && response != "paper" && response != "scissors"){
         Console.WriteLine("Invalid input");
         SelectMove();
     }
@@ -145,8 +147,8 @@ int SelectMove(string player = ""){
             paper++;
             return 1;
 
-        case "sissors":
-            sissors++;
+        case "scissors":
+            scissors++;
             return 2;
     }
 
